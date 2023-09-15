@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace SparkPlug_v1
 {
-    public partial class Home : Form
+    public partial class ViewProjects : Form
     {
-        public Home()
+        public ViewProjects()
         {
             InitializeComponent();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            Home home = new Home();
+            home.Show();
         }
     }
 }
