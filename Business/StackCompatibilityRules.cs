@@ -38,7 +38,7 @@ namespace SparkPlug_v1.Business
             return true;
         }
 
-        private static bool IsLanguageCompatibleWithAppType(string language, string appType, string frontend)
+        private static bool IsLanguageCompatibleWithAppTypeAndFrontend(string language, string appType, string frontend)
         {
             if (language == "C#")
             {
@@ -48,7 +48,7 @@ namespace SparkPlug_v1.Business
                 }
                 else if (appType == "Web")
                 {
-                    return frontend == "Blazor" || frontend == "CSS" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
+                    return frontend == "Blazor" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
                 }
                 else if (appType == "Console")
                 {
@@ -64,7 +64,7 @@ namespace SparkPlug_v1.Business
                 }
                 else if (appType == "Web")
                 {
-                    return frontend == "CSS" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
+                    return frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
                 }
                 else if (appType == "Console")
                 {
@@ -80,7 +80,7 @@ namespace SparkPlug_v1.Business
                 }
                 else if (appType == "Web")
                 {
-                    return frontend == "CSS" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
+                    return frontend == "CSS";
                 }
                 else if (appType == "Console")
                 {
@@ -88,80 +88,92 @@ namespace SparkPlug_v1.Business
                 }
             }
 
-            if (appType == "Desktop")
+            if (language == "HTML")
             {
-                if( language == "C#")
+                if (appType == "Desktop")
                 {
-                    return (frontend == "Windows");
+                    return false;
                 }
-                else if (language == "Java")
+                else if (appType == "Web")
                 {
-                    return (frontend == "CSS");
+                    return frontend == "CSS" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS";
                 }
-                else if (language == "Python")
+                else if (appType == "Console")
                 {
-                    return (frontend == "");
+                    return false;
                 }
-            }
-            else if (appType == "Web")
-            {
-                return language == "C#" || language == "Java" || language == "Python" || language == "HTML, CSS, and JS";
-            }
-            else if (appType == "Console")
-            {
-                return language == "C#" || language == "Java" || language == "Python" || language == "HTML, CSS, and JS";
             }
 
             return false;
         }
 
-        private static bool IsAppTypeCompatibleWithFrontend(string appType, string frontend)
+        private static bool IsLanguageCompatibleWithBackendAndDatabase(string language, string appType, string frontend)
         {
-            // Define compatibility rules for appType and frontend
-            // Return true if compatible, otherwise false
-
-            // Example: If "Mobile" appType is compatible with all frontend technologies
-            if (appType == "Desktop")
+            if (language == "C#")
             {
-                return true;
+                if (appType == "Desktop")
+                {
+                    return frontend == "Windows Forms";
+                }
+                else if (appType == "Web")
+                {
+                    return frontend == "Blazor" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
+                }
+                else if (appType == "Console")
+                {
+                    return frontend == "Console";
+                }
             }
 
-            return false;
-        }
-
-        private static bool IsLanguageCompatibleWithBackend(string language, string backend)
-        {
-            // Define compatibility rules for language and backend
-            // Return true if compatible, otherwise false
-
-            // Example: If "Java" language is compatible with "SpringBoot" and "Flask" backends
             if (language == "Java")
             {
-                return backend == "SpringBoot" || backend == "Flask";
+                if (appType == "Desktop")
+                {
+                    return frontend == "JavaFX" || frontend == "Swing";
+                }
+                else if (appType == "Web")
+                {
+                    return frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
+                }
+                else if (appType == "Console")
+                {
+                    return frontend == "Console";
+                }
             }
 
-            // Add more compatibility rules for other languages and backends as needed
-
-            // If no specific rules apply, return false by default
-            return false;
-        }
-
-        private static bool IsBackendCompatibleWithDatabase(string backend, string database)
-        {
-            // Define compatibility rules for backend and database
-            // Return true if compatible, otherwise false
-
-            // Example: If "SpringBoot" backend is compatible with "MySQL" and "PostgreSQL" databases
-            if (backend == "SpringBoot")
+            if (language == "Python")
             {
-                return database == "MySQL" || database == "PostgreSQL";
+                if (appType == "Desktop")
+                {
+                    return frontend == "PyQt";
+                }
+                else if (appType == "Web")
+                {
+                    return frontend == "CSS";
+                }
+                else if (appType == "Console")
+                {
+                    return frontend == "Console";
+                }
             }
 
-            // Add more compatibility rules for other backends and databases as needed
+            if (language == "HTML")
+            {
+                if (appType == "Desktop")
+                {
+                    return false;
+                }
+                else if (appType == "Web")
+                {
+                    return frontend == "CSS" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS";
+                }
+                else if (appType == "Console")
+                {
+                    return false;
+                }
+            }
 
-            // If no specific rules apply, return false by default
             return false;
         }
-
     }
 }
