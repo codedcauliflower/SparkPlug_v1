@@ -22,7 +22,8 @@ namespace SparkPlug_v1
 
         private void RefreshDataSources()
         {
-            cbxPlatform.DataSource = dbOps.SelectPlatforms();
+            cbxLanguage.DataSource = dbOps.SelectLanguages();
+            cbxAppType.DataSource = dbOps.SelectAppTypes();
             cbxComplexity.DataSource = dbOps.SelectComplexities();
             cbxStyle.DataSource = dbOps.SelectStyles();
             cbxIndustry.DataSource = dbOps.SelectIndustries();

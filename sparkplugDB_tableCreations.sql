@@ -1,3 +1,6 @@
+USE SparkPlugDB
+GO
+
 create table Industries(
 	IndustryID int identity(1,1) primary key,
 	IndustryName varchar(50) NOT NULL,
@@ -15,9 +18,9 @@ create table Styles(
 	StyleName varchar(50) NOT NULL,
 );
 
-create table Platforms(
-	PlatformID int identity(1,1) primary key,
-	PlatformName varchar(50) NOT NULL,
+create table AppTypes(
+	AppTypeID int identity(1,1) primary key,
+	AppType varchar(50) NOT NULL,
 );
 
 create table ComplexityLevels(
@@ -30,6 +33,11 @@ create table BackendTechnologies(
 	BackendName varchar(50) NOT NULL,
 );
 
+create table [Databases](
+	DatabaseID int identity(1,1) primary key,
+	DatabaseName varchar(50) NOT NULL,
+);
+
 create table FrontendTechnologies(
 	FrontendID int identity(1,1) primary key,
 	FrontendName varchar(50) NOT NULL,
@@ -40,29 +48,16 @@ create table Languages(
 	LanguageName varchar(50) NOT NULL,
 );
 
-create table Stacks(
-	StackID int identity(1,1) primary key,
-	StackName varchar(50) NOT NULL,
-	LanguageID int,
-	FrontendID int,
-	BackendID int,
-	foreign key (LanguageID) references Languages(LanguageID),
-	foreign key (FrontendID) references FrontendTechnologies(FrontendID),
-	foreign key (BackendID) references BackendTechnologies(BackendID),
-);
-
 create table Projects(
 	ProjectID int identity(1,1) primary key,
 	ProjectName varchar(50) NOT NULL,
 	ProjectDescription varchar(50) NOT NULL,
-	StackID int,
 	ComplexityID int,
-	PlatformID int,
+	AppTypeID int,
 	StyleID int,
 	IndustryID int,
-	foreign key (StackID) references Stacks(StackID),
 	foreign key (ComplexityID) references ComplexityLevels(ComplexityID),
-	foreign key (PlatformID) references Platforms(PlatformID),
+	foreign key (AppTypeID) references AppTypes(AppTypeID),
 	foreign key (StyleID) references Styles(StyleID),
 	foreign key (IndustryID) references Industries(IndustryID)
 );

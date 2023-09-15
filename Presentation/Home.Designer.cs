@@ -34,11 +34,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnViewProjects = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbxLanguage = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.cbxIndustry = new System.Windows.Forms.ComboBox();
             this.cbxStyle = new System.Windows.Forms.ComboBox();
             this.cbxComplexity = new System.Windows.Forms.ComboBox();
-            this.cbxPlatform = new System.Windows.Forms.ComboBox();
+            this.cbxAppType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -84,7 +86,7 @@
             // 
             this.btnViewProjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.btnViewProjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewProjects.ForeColor = System.Drawing.Color.MistyRose;
+            this.btnViewProjects.ForeColor = System.Drawing.Color.Snow;
             this.btnViewProjects.Location = new System.Drawing.Point(24, 119);
             this.btnViewProjects.Name = "btnViewProjects";
             this.btnViewProjects.Size = new System.Drawing.Size(84, 28);
@@ -96,11 +98,13 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(90)))), ((int)(((byte)(73)))));
+            this.panel2.Controls.Add(this.cbxLanguage);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.btnGenerate);
             this.panel2.Controls.Add(this.cbxIndustry);
             this.panel2.Controls.Add(this.cbxStyle);
             this.panel2.Controls.Add(this.cbxComplexity);
-            this.panel2.Controls.Add(this.cbxPlatform);
+            this.panel2.Controls.Add(this.cbxAppType);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
@@ -111,11 +115,32 @@
             this.panel2.Size = new System.Drawing.Size(425, 608);
             this.panel2.TabIndex = 2;
             // 
+            // cbxLanguage
+            // 
+            this.cbxLanguage.BackColor = System.Drawing.Color.Snow;
+            this.cbxLanguage.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxLanguage.FormattingEnabled = true;
+            this.cbxLanguage.Location = new System.Drawing.Point(185, 108);
+            this.cbxLanguage.Name = "cbxLanguage";
+            this.cbxLanguage.Size = new System.Drawing.Size(191, 21);
+            this.cbxLanguage.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("MS Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(192)))), ((int)(((byte)(175)))));
+            this.label7.Location = new System.Drawing.Point(36, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 19);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Language:";
+            // 
             // btnGenerate
             // 
             this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerate.ForeColor = System.Drawing.Color.MistyRose;
+            this.btnGenerate.ForeColor = System.Drawing.Color.Snow;
             this.btnGenerate.Location = new System.Drawing.Point(171, 544);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(84, 28);
@@ -125,50 +150,50 @@
             // 
             // cbxIndustry
             // 
-            this.cbxIndustry.BackColor = System.Drawing.Color.MistyRose;
+            this.cbxIndustry.BackColor = System.Drawing.Color.Snow;
             this.cbxIndustry.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxIndustry.FormattingEnabled = true;
-            this.cbxIndustry.Location = new System.Drawing.Point(187, 292);
+            this.cbxIndustry.Location = new System.Drawing.Point(185, 344);
             this.cbxIndustry.Name = "cbxIndustry";
             this.cbxIndustry.Size = new System.Drawing.Size(191, 21);
             this.cbxIndustry.TabIndex = 14;
             // 
             // cbxStyle
             // 
-            this.cbxStyle.BackColor = System.Drawing.Color.MistyRose;
+            this.cbxStyle.BackColor = System.Drawing.Color.Snow;
             this.cbxStyle.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxStyle.FormattingEnabled = true;
-            this.cbxStyle.Location = new System.Drawing.Point(187, 232);
+            this.cbxStyle.Location = new System.Drawing.Point(185, 284);
             this.cbxStyle.Name = "cbxStyle";
             this.cbxStyle.Size = new System.Drawing.Size(191, 21);
             this.cbxStyle.TabIndex = 13;
             // 
             // cbxComplexity
             // 
-            this.cbxComplexity.BackColor = System.Drawing.Color.MistyRose;
+            this.cbxComplexity.BackColor = System.Drawing.Color.Snow;
             this.cbxComplexity.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxComplexity.FormattingEnabled = true;
-            this.cbxComplexity.Location = new System.Drawing.Point(187, 169);
+            this.cbxComplexity.Location = new System.Drawing.Point(185, 221);
             this.cbxComplexity.Name = "cbxComplexity";
             this.cbxComplexity.Size = new System.Drawing.Size(191, 21);
             this.cbxComplexity.TabIndex = 12;
             // 
-            // cbxPlatform
+            // cbxAppType
             // 
-            this.cbxPlatform.BackColor = System.Drawing.Color.MistyRose;
-            this.cbxPlatform.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxPlatform.FormattingEnabled = true;
-            this.cbxPlatform.Location = new System.Drawing.Point(187, 114);
-            this.cbxPlatform.Name = "cbxPlatform";
-            this.cbxPlatform.Size = new System.Drawing.Size(191, 21);
-            this.cbxPlatform.TabIndex = 11;
+            this.cbxAppType.BackColor = System.Drawing.Color.Snow;
+            this.cbxAppType.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAppType.FormattingEnabled = true;
+            this.cbxAppType.Location = new System.Drawing.Point(185, 166);
+            this.cbxAppType.Name = "cbxAppType";
+            this.cbxAppType.Size = new System.Drawing.Size(191, 21);
+            this.cbxAppType.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(192)))), ((int)(((byte)(175)))));
-            this.label6.Location = new System.Drawing.Point(38, 294);
+            this.label6.Location = new System.Drawing.Point(36, 346);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 19);
             this.label6.TabIndex = 10;
@@ -179,7 +204,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(192)))), ((int)(((byte)(175)))));
-            this.label5.Location = new System.Drawing.Point(38, 234);
+            this.label5.Location = new System.Drawing.Point(36, 286);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 19);
             this.label5.TabIndex = 8;
@@ -190,7 +215,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(192)))), ((int)(((byte)(175)))));
-            this.label4.Location = new System.Drawing.Point(38, 171);
+            this.label4.Location = new System.Drawing.Point(36, 223);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 19);
             this.label4.TabIndex = 6;
@@ -201,11 +226,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(192)))), ((int)(((byte)(175)))));
-            this.label3.Location = new System.Drawing.Point(38, 116);
+            this.label3.Location = new System.Drawing.Point(36, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 19);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Platform:";
+            this.label3.Text = "App Type:";
             // 
             // label2
             // 
@@ -253,11 +278,13 @@
         private System.Windows.Forms.ComboBox cbxIndustry;
         private System.Windows.Forms.ComboBox cbxStyle;
         private System.Windows.Forms.ComboBox cbxComplexity;
-        private System.Windows.Forms.ComboBox cbxPlatform;
+        private System.Windows.Forms.ComboBox cbxAppType;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbxLanguage;
+        private System.Windows.Forms.Label label7;
     }
 }
 

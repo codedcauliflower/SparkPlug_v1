@@ -11,25 +11,13 @@ namespace SparkPlug_v1.Business
         public static bool IsCompatible(string language, string frontend, string backend, string database, string appType)
         {
             // Check if the language is compatible with the selected appType
-            if (!IsLanguageCompatibleWithAppType(language, appType, frontend))
+            if (!IsLanguageCompatibleWithAppTypeAndFrontend(language, appType, frontend))
             {
                 return false;
             }
 
             // Check if the selected appType is compatible with the chosen frontend
-            if (!IsAppTypeCompatibleWithFrontend(appType, frontend))
-            {
-                return false;
-            }
-
-            // Check if the language is compatible with the selected backend
-            if (!IsLanguageCompatibleWithBackend(language, backend))
-            {
-                return false;
-            }
-
-            // Check if the selected backend is compatible with the chosen database
-            if (!IsBackendCompatibleWithDatabase(backend, database))
+            if (!IsLanguageCompatibleWithBackend(language, backend, database))
             {
                 return false;
             }
@@ -107,70 +95,26 @@ namespace SparkPlug_v1.Business
             return false;
         }
 
-        private static bool IsLanguageCompatibleWithBackendAndDatabase(string language, string appType, string frontend)
+        private static bool IsLanguageCompatibleWithBackend(string language, string backend, string database)
         {
-            if (language == "C#")
+            if (language == "C#" && backend == "ADO.NET")
             {
-                if (appType == "Desktop")
-                {
-                    return frontend == "Windows Forms";
-                }
-                else if (appType == "Web")
-                {
-                    return frontend == "Blazor" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
-                }
-                else if (appType == "Console")
-                {
-                    return frontend == "Console";
-                }
+                return database == "SQL Server" || database == "MySQL";
             }
 
             if (language == "Java")
             {
-                if (appType == "Desktop")
-                {
-                    return frontend == "JavaFX" || frontend == "Swing";
-                }
-                else if (appType == "Web")
-                {
-                    return frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS" || frontend == "CSS";
-                }
-                else if (appType == "Console")
-                {
-                    return frontend == "Console";
-                }
+                return backend == "SpringBoot";
             }
 
             if (language == "Python")
             {
-                if (appType == "Desktop")
-                {
-                    return frontend == "PyQt";
-                }
-                else if (appType == "Web")
-                {
-                    return frontend == "CSS";
-                }
-                else if (appType == "Console")
-                {
-                    return frontend == "Console";
-                }
+                return backend == "Django" || backend == "Flask";
             }
 
             if (language == "HTML")
             {
-                if (appType == "Desktop")
-                {
-                    return false;
-                }
-                else if (appType == "Web")
-                {
-                    return frontend == "CSS" || frontend == "Angular" || frontend == "React" || frontend == "Tailwind" || frontend == "SASS";
-                }
-                else if (appType == "Console")
-                {
-                    return false;
-                }
+                return backend == "Node.js";
             }
 
             return false;

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,9 +24,37 @@ namespace SparkPlug_v1.Data_Access
 
         }
 
-        public void SelectConcepts()
+        public List<string> SelectConcepts()
         {
+            List<string> concepts = new List<string>();
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT ConceptName FROM Concepts";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string concept = reader["ConceptName"].ToString();
+                                concepts.Add(concept);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBoxHelper.Show(e.Message);
+            }
+
+            return concepts;
         }
 
         public void SelectProjectConcepts()
@@ -99,11 +128,6 @@ namespace SparkPlug_v1.Data_Access
             return industryNames;
         }
 
-        public void SelectStakeholders()
-        {
-
-        }
-
         public List<string> SelectStyles()
         {
             List<string> styleNames = new List<string>();
@@ -137,9 +161,9 @@ namespace SparkPlug_v1.Data_Access
             return styleNames;
         }
 
-        public List<string> SelectPlatforms()
+        public List<string> SelectAppTypes()
         {
-            List<string> platformNames = new List<string>();
+            List<string> appTypes = new List<string>();
 
             try
             {
@@ -147,7 +171,7 @@ namespace SparkPlug_v1.Data_Access
                 {
                     connection.Open();
 
-                    string query = "SELECT PlatformName FROM Platforms";
+                    string query = "SELECT AppType FROM AppTypes";
                     
                     using(SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -155,8 +179,8 @@ namespace SparkPlug_v1.Data_Access
                         {
                             while(reader.Read())
                             {
-                                string platformName = reader["PlatformName"].ToString();
-                                platformNames.Add(platformName);
+                                string appType = reader["AppType"].ToString();
+                                appTypes.Add(appType);
                             }
                         }
                     }
@@ -167,27 +191,139 @@ namespace SparkPlug_v1.Data_Access
                 MessageBoxHelper.Show(e.Message);
             }
 
-            return platformNames;
+            return appTypes;
         }
 
-        public void SelectBackendTechnologies()
+        public List<string> SelectFrontendTechnologies()
         {
+            List<string> frontends = new List<string>();
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT FrontendName FROM FrontendTechnologies";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string frontend = reader["FrontendName"].ToString();
+                                frontends.Add(frontend);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBoxHelper.Show(e.Message);
+            }
+
+            return frontends;
         }
 
-        public void SelectFrontendTechnologies()
+        public List<string> SelectBackendTechnologies()
         {
+            List<string> backends = new List<string>();
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT BackendName FROM BackendTechnologies";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string backend = reader["BackendName"].ToString();
+                                backends.Add(backend);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBoxHelper.Show(e.Message);
+            }
+
+            return backends;
         }
 
-        public void SelectLanguages()
+        public List<string> SelectDatabases()
         {
+            List<string> databases = new List<string>();
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT DatabaseName FROM Databases";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string database = reader["DatabaseName"].ToString();
+                                databases.Add(database);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBoxHelper.Show(e.Message);
+            }
+
+            return databases;
         }
 
-        public void SelectStacks()
+        public List<string> SelectLanguages()
         {
+            List<string> languages = new List<string>();
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT LanguageName FROM Languages";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string language = reader["LanguageName"].ToString();
+                                languages.Add(language);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBoxHelper.Show(e.Message);
+            }
+
+            return languages;
         }
     }
 }

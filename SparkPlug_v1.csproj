@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\GenerateProject.cs" />
     <Compile Include="Business\MessageBoxHelper.cs" />
     <Compile Include="Business\StackCompatibilityRules.cs" />
     <Compile Include="Data Access\DatabaseOperations.cs" />
