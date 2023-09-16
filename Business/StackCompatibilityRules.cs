@@ -8,21 +8,26 @@ namespace SparkPlug_v1.Business
 {
     internal class StackCompatibilityRules
     {
-        public static bool IsCompatible(string language, string frontend, string backend, string database, string appType)
+        public bool IsCompatible(string language, string frontend, string backend, string database, string appType)
         {
+            Console.WriteLine("isCompatible()");
+
             // Check if the language is compatible with the selected appType
             if (!IsLanguageCompatibleWithAppTypeAndFrontend(language, appType, frontend))
             {
+                Console.WriteLine("Stack is not compatible" + "\n");
                 return false;
             }
 
             // Check if the selected appType is compatible with the chosen frontend
             if (!IsLanguageCompatibleWithBackend(language, backend, database))
             {
+                Console.WriteLine("Stack is not compatible" + "\n");
                 return false;
             }
 
             // All compatibility checks passed, the stack is compatible
+            Console.WriteLine("Stack is compatible" + "\n");
             return true;
         }
 

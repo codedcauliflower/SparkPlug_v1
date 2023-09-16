@@ -6,13 +6,6 @@ create table Industries(
 	IndustryName varchar(50) NOT NULL,
 );
 
-create table Stakeholders(
-	StakeholderID int identity(1,1) primary key,
-	StakeholderRole varchar(50) NOT NULL,
-	IndustryID int,
-	foreign key (IndustryID) references Industries(IndustryID)
-);
-
 create table Styles(
 	StyleID int identity(1,1) primary key,
 	StyleName varchar(50) NOT NULL,
@@ -56,10 +49,18 @@ create table Projects(
 	AppTypeID int,
 	StyleID int,
 	IndustryID int,
+	LanguageID int,
+	FrontendID int,
+	BackendID int,
+	DatabaseID int,
 	foreign key (ComplexityID) references ComplexityLevels(ComplexityID),
 	foreign key (AppTypeID) references AppTypes(AppTypeID),
 	foreign key (StyleID) references Styles(StyleID),
-	foreign key (IndustryID) references Industries(IndustryID)
+	foreign key (LanguageID) references Languages(LanguageID),
+	foreign key (FrontendID) references FrontendTechnologies(FrontendID),
+	foreign key (BackendID) references BackendTechnologies(BackendID),
+	foreign key (DatabaseID) references [Databases](DatabaseID),
+
 );
 
 create table Concepts(

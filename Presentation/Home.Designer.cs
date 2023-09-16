@@ -64,11 +64,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(163)))), ((int)(((byte)(128)))));
-            this.label1.Location = new System.Drawing.Point(335, 25);
+            this.label1.Location = new System.Drawing.Point(331, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(324, 64);
+            this.label1.Size = new System.Drawing.Size(338, 73);
             this.label1.TabIndex = 2;
             this.label1.Text = "SparkPlug";
             // 
@@ -112,7 +112,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(219, 180);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(425, 608);
+            this.panel2.Size = new System.Drawing.Size(425, 502);
             this.panel2.TabIndex = 2;
             // 
             // cbxLanguage
@@ -141,12 +141,13 @@
             this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerate.ForeColor = System.Drawing.Color.Snow;
-            this.btnGenerate.Location = new System.Drawing.Point(171, 544);
+            this.btnGenerate.Location = new System.Drawing.Point(168, 444);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(84, 28);
             this.btnGenerate.TabIndex = 3;
             this.btnGenerate.Text = "generate";
             this.btnGenerate.UseVisualStyleBackColor = false;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // cbxIndustry
             // 
